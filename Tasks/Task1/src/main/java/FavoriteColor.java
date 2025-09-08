@@ -38,7 +38,7 @@ public class FavoriteColor extends Application {
         resetButton.setOnAction(e -> {
             colors.setValue(null);
             resultLabel.setText("Selected color will appear here");
-        })
+        });
 
         VBox root = new VBox(10, colors, confirmButton, resultLabel);
 
