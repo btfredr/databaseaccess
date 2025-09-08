@@ -1,12 +1,10 @@
-
-
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.Button;
 
 /*
 Create a JavaFX application that asks the user for their favorite color.
@@ -14,17 +12,21 @@ The application should display a ComboBox with at least five predefined color op
  */
 
 public class FavoriteColor extends Application {
-    public void start (Stage stage) {
-        Label title = new Label("Your favorite color");
-        TextField message = new TextField();
-        message.setPromptText("Select your favorite color: ");
 
-        comboBox colors = new comboBox();
+    @Override
+    public void start (Stage stage) {
+        ComboBox<String> colors = new ComboBox<>();
         colors.getItems().addAll("Red", "Blue", "Green", "Yellow", "Purple");
         colors.setEditable(true);
+        Label resultLabel = new Label("Selected color will appear here");
+        Button confirmButton = new Button("Confirm");
 
+        VBox root = new VBox(10, colors, resultLabel);
 
-        VBox root = new VBox(10, title, message, colors);
+        Scene scene = new Scene(root, 300, 200);
+        stage.setScene(scene);
+        stage.setTitle("Favorite Color");
+        stage.show();
     }   
 
     public static void main(String[] args) {

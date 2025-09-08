@@ -2,17 +2,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>com.example</groupId>
     <artifactId>task1</artifactId>
     <version>1.0-SNAPSHOT</version>
-
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-        <javafx.version>21</javafx.version> <!-- Juster til din JavaFX-versjon -->
+        <javafx.version>21</javafx.version>
     </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.openjfx</groupId>
@@ -25,7 +22,6 @@
             <version>${javafx.version}</version>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
@@ -48,7 +44,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>FavoriteColor</mainClass> <!-- Ingen pakke, bare klassenavn -->
+                    <mainClass>FavoriteColor</mainClass>
                 </configuration>
             </plugin>
         </plugins>
