@@ -36,6 +36,21 @@
                     <release>11</release>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.5.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <mainClass>FavoriteColor</mainClass> <!-- Ingen pakke, bare klassenavn -->
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 </project>
