@@ -21,6 +21,19 @@ public class FavoriteColor extends Application {
         Label resultLabel = new Label("Selected color will appear here");
         Button confirmButton = new Button("Confirm");
 
+        colors.setOnAction(e -> {
+            try {
+                String selectedColor = colors.getValue();
+                if (selectedColor != null && selectedColor.trim().isEmpty()) {
+                    resultLabel.setText("Selected color: " + selectedColor);
+                } else {
+                    resultLabel.setText("Please set a valid color.");
+                }
+            } catch (Exception ex) {
+                resultLabel.setText("Error: " + ex.getMessage());
+            }
+        })
+
         VBox root = new VBox(10, colors, resultLabel);
 
         Scene scene = new Scene(root, 300, 200);
