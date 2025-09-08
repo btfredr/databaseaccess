@@ -40,7 +40,7 @@ public class FavoriteColor extends Application {
             resultLabel.setText("Selected color will appear here");
         });
 
-        VBox root = new VBox(10, colors, confirmButton, resultLabel);
+        VBox root = new VBox(10, colors, confirmButton, resetButton, resultLabel);
 
         Scene scene = new Scene(root, 300, 200);
         stage.setScene(scene);
