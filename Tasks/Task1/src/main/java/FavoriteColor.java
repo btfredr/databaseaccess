@@ -20,21 +20,27 @@ public class FavoriteColor extends Application {
         colors.setEditable(true);
         Label resultLabel = new Label("Selected color will appear here");
         Button confirmButton = new Button("Confirm");
+        Button resetButton = new Button("Reset");
 
-        colors.setOnAction(e -> {
+        confirmButton.setOnAction(e -> {
             try {
                 String selectedColor = colors.getValue();
-                if (selectedColor != null && selectedColor.trim().isEmpty()) {
+                if (selectedColor != null && !selectedColor.trim().isEmpty()) {
                     resultLabel.setText("Selected color: " + selectedColor);
                 } else {
-                    resultLabel.setText("Please set a valid color.");
+                    resultLabel.setText("Please select a valid color.");
                 }
             } catch (Exception ex) {
-                resultLabel.setText("Error: " + ex.getMessage());
+                resultLabel.setText("Error:" + ex.getMessage());
             }
+        });
+
+        resetButton.setOnAction(e -> {
+            colors.setValue(null);
+            resultLabel.setText("Selected color will appear here");
         })
 
-        VBox root = new VBox(10, colors, resultLabel);
+        VBox root = new VBox(10, colors, confirmButton, resultLabel);
 
         Scene scene = new Scene(root, 300, 200);
         stage.setScene(scene);
