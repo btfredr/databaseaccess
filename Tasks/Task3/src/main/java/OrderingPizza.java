@@ -1,10 +1,8 @@
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.stage.Stage;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 /*
     Create a JavaFX interface for ordering a pizza. The user should be
@@ -15,41 +13,21 @@ import javafx.scene.control.Button;
 public class OrderingPizza extends Application {
 
     @Override
-    public void start (Stage stage) {
-        ComboBox<String> colors = new ComboBox<>();
-        colors.getItems().addAll("Red", "Blue", "Green", "Yellow", "Purple");
-        colors.setEditable(true);
-        Label resultLabel = new Label("Selected color will appear here");
-        Button confirmButton = new Button("Confirm");
-        Button resetButton = new Button("Reset");
+    public void start(Stage stage) {
+        // Properties
+        Label title = new Label("Pizzabestilling");
+        CheckBox cheese = new CheckBox("Ost (+10kr)");
+        CheckBox pepperoni = new CheckBox("Pepperoni (+10kr)");
+        CheckBox mushrooms = new CheckBox("Sopp (+10kr)");
 
-        confirmButton.setOnAction(e -> {
-            try {
-                String selectedColor = colors.getValue();
-                if (selectedColor != null && !selectedColor.trim().isEmpty()) {
-                    resultLabel.setText("Selected color: " + selectedColor);
-                } else {
-                    resultLabel.setText("Please select a valid color.");
-                }
-            } catch (Exception ex) {
-                resultLabel.setText("Error:" + ex.getMessage());
-            }
-        });
+        ComboBox<String> size = new ComboBox<>();
+        size.getItems().addAll("Liten (50kr)", "Medium (70kr)", "Stor (100kr)");
+        size.setValue("Liten (50kr)");
 
-        resetButton.setOnAction(e -> {
-            colors.setValue(null);
-            resultLabel.setText("Selected color will appear here");
-        });
-
-        VBox root = new VBox(10, colors, confirmButton, resetButton, resultLabel);
-
-        Scene scene = new Scene(root, 300, 200);
-        stage.setScene(scene);
-        stage.setTitle("Favorite Color");
-        stage.show();
-    }   
-
-    public static void main(String[] args) {
-        launch(args);
+        ComboBox<String> sauce = new ComboBox<>();
+        size.getItems().addAll("Tomat (inkludert)", "Hvitløk (+5kr)", "Barbeque (+5 kr)");
+        size.setValue("Tomat (inkludert)");
+        
+        
     }
 }
