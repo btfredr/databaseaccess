@@ -12,15 +12,25 @@ after the user clicks it eight times. Then, display a label with the text
 
 public class DisableButton extends Application {
 
+    public int clickCounter = 0;
+    public final static int MAX_CLICKS = 8;
+    
+
     @Override
     public void start(Stage stage) {
         Button btn = new Button("Click here");
+        Label messageLabel = new Label("");
 
         btn.setOnAction(e -> {
-            btn.setDisable(true);
+            clickCounter++;
+            
+            if (clickCounter >= MAX_CLICKS) {
+                btn.setDisable(true);
+                messageLabel.setText("That's enough!");
+            }
         });
 
-        VBox root = new VBox(10, btn);
+        VBox root = new VBox(10, btn, messageLabel);
         Scene scene = new Scene(root, 500, 500);
         stage.setScene(scene);
         stage.setTitle("Disable button");
