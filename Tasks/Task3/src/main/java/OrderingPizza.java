@@ -37,7 +37,7 @@ public class OrderingPizza extends Application {
 
 
         
-        // Beregne pris
+        // Calculating order price
         calculateButton.setOnAction(e -> {
             double basePrice = switch (size.getValue().split(" ")[0]); {
             case "Liten" -> 50.0;
@@ -54,6 +54,16 @@ public class OrderingPizza extends Application {
 
         double saucePrice = sauce.getValue().contains("+5 kr") ? 5.0 : 0.0;
         double total = basePrice + toppingPrice + saucePrice;
+
+
+        // Validating address
+        if (address.getText().trim().isEmpty()) {
+            totalCost.setText("Vennligst skriv inn adresse!");
+        } else {
+            totalCost.setText(String.format("Total pris: " + total + "kr"));
+        }
+
+        
         });
     }
 }
