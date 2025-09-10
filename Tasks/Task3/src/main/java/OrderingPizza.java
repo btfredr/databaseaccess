@@ -27,8 +27,8 @@ public class OrderingPizza extends Application {
 
         // Dropdown with sauce alternatives
         ComboBox<String> sauce = new ComboBox<>();
-        size.getItems().addAll("Tomat (inkludert)", "Hvitløk (+5kr)", "Barbeque (+5 kr)");
-        size.setValue("Tomat (inkludert)");
+        sauce.getItems().addAll("Tomat (inkludert)", "Hvitløk (+5 kr)", "Barbeque (+5 kr)");
+        sauce.setValue("Tomat (inkludert)");
 
         TextField address = new TextField();
         address.setPromptText("Skriv inn leveringsadresse");
@@ -39,31 +39,40 @@ public class OrderingPizza extends Application {
         
         // Calculating order price
         calculateButton.setOnAction(e -> {
-            double basePrice = switch (size.getValue().split(" ")[0]); {
+            double basePrice = switch (size.getValue().split(" ")[0]) {
             case "Liten" -> 50.0;
             case "Medium" -> 70.0;
             case "Stor" -> 100.0;
             default -> 50.0;
         };
 
-        double toppingPrice = 
-            (cheese.isSelected() ? 10.0 : 0.) + 
-            (pepperoni.isSelected() ? 10.0 : 0.0) + 
-            (mushrooms.isSelected() ? 10.0 : 0.0);
+            double toppingPrice = 
+                (cheese.isSelected() ? 10.0 : 0.) + 
+                (pepperoni.isSelected() ? 10.0 : 0.0) + 
+                (mushrooms.isSelected() ? 10.0 : 0.0);
 
 
-        double saucePrice = sauce.getValue().contains("+5 kr") ? 5.0 : 0.0;
-        double total = basePrice + toppingPrice + saucePrice;
+            double saucePrice = sauce.getValue().contains("+5 kr") ? 5.0 : 0.0;
+            double total = basePrice + toppingPrice + saucePrice;
 
 
-        // Validating address
-        if (address.getText().trim().isEmpty()) {
-            totalCost.setText("Vennligst skriv inn adresse!");
-        } else {
-            totalCost.setText(String.format("Total pris: " + total + "kr"));
-        }
-
-        
+            // Validating address
+            if (address.getText().trim().isEmpty()) {
+                totalCost.setText("Vennligst skriv inn adresse!");
+            } else {
+                totalCost.setText(String.format("Total pris: " + total + "kr"));
+            }
         });
+
+        // Layout
+        VBox root = new VBox(10, title, cheese, pepperoni, mushrooms, new Label("Størrelse: "), size, new Label("Saus: "), sauce, new Label("Leveringsadresse: "), address, calculateButton, totalCost);
+        Scene scene = new Scene(root, 300, 400);
+        stage.setScene(scene);
+        stage.setTitle("Pizzabestilling");
+        stage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
     }
 }
