@@ -16,9 +16,16 @@ public class BookQuote2 extends Application {
     public void start(Stage stage) {
         // Book quote displayed in a label
         Label quote = new Label("It was the best of times, it was the worst of times...");
+        Label title = new Label("");
+        Button showTitle = new Button("Show title");
+
+
+        showTitle.setOnAction(e -> {
+            title.setText("Titanic");
+        });
 
         // Layout
-        VBox root = new VBox(10, quote);
+        VBox root = new VBox(10, quote, showTitle, title);
         Scene scene = new Scene(root, 300, 400);
         stage.setScene(scene);
         stage.setTitle("Movie quote");
