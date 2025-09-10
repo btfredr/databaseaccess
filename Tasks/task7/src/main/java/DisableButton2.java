@@ -10,7 +10,7 @@ after the user clicks it eight times. Then, display a label with the text
 “That’s enough!” Save as DisableButton2.java.
  */
 
-public class DisableButton extends Application {
+public class DisableButton2 extends Application {
 
     public int clickCounter = 0;
     public final static int MAX_CLICKS = 8;
