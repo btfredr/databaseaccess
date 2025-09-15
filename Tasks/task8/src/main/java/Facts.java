@@ -30,7 +30,7 @@ public class Facts extends Application {
         // Starting with the first six facts
         Label[] labels = new Label[6];
         // Looping through facts
-        for (int = 0; i < 6; i++) {
+        for (int i = 0; i < 6; i++) {
             labels[i] = new Label(facts[i]);
         }
 
@@ -62,6 +62,5 @@ public class Facts extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
 
 }
