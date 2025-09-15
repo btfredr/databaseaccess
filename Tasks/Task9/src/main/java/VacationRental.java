@@ -33,6 +33,9 @@ public class VacationRental extends Application {
         bedrooms.getItems().addAll("1", "2", "3", "4");
         bedrooms.setValue("1");
 
+        // Meals
+        CheckBox meals = new CheckBox("Include meals (+$200)");
+
         
     }
 }
