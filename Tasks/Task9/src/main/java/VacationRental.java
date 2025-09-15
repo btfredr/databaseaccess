@@ -1,3 +1,5 @@
+import java.lang.classfile.Label;
+
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -15,5 +17,17 @@ public class VacationRental extends Application {
     @Override
     public void start(Stage stage) {
         // Location
+        Label location = new Label("Choose location: ");
+        ToggleGroup locationGroup = new ToggleGroup();
+        RadioButton parkSide = new RadioButton("Parkside ($600)");
+        RadioButton poolSide = new RadioButton("Poolside ($750)");
+        RadioButton lakeSide = new RadioButton("Lakeside ($825)");
+
+        parkSide.setToggleGroup(locationGroup);
+        poolSide.setToggleGroup(locationGroup);
+        lakeSide.setToggleGroup(locationGroup);
+
+        // Bedrooms
+        Label bedroom = new Label("Number of bedrooms: ");
     }
 }
