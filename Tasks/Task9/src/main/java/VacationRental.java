@@ -29,5 +29,10 @@ public class VacationRental extends Application {
 
         // Bedrooms
         Label bedroom = new Label("Number of bedrooms: ");
+        ComboBox<String> bedrooms = new ComboBox<>();
+        bedrooms.getItems().addAll("1", "2", "3", "4");
+        bedrooms.setValue("1");
+
+        
     }
 }
