@@ -36,6 +36,8 @@ public class VacationRental extends Application {
         // Meals
         CheckBox meals = new CheckBox("Include meals (+$200)");
 
-        
+        // Result
+        Button calc = new Button("Calculate total cost");
+        Label result = new Label("Total cost will appear here.");
     }
 }
