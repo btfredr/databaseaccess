@@ -47,5 +47,21 @@ public class Facts extends Application {
                 nextFactButton.setDisable(true);
             }
         });
+
+    VBox root = new VBox(10);
+    root.getChildren().addAll(labels);
+    root.getChildren().add(nextFactButton);
+
+    Scene scene = new Scene(root, 400, 400);
+    stage.setScene(scene);
+    stage.setTitle("Space facts");
+    stage.show();
+
     }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+
 }
