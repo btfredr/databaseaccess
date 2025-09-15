@@ -22,6 +22,8 @@ public class Facts extends Application {
         "Pluto was reclassified as a dwarf planet in 2006."
     };
     
+    private int factIndex = 6; // starting on which fact is getting showed next
+    private int replaceIndex = 0; // the label that is going to be replaced next
     @Override
     public void start(Stage stage) {
 
