@@ -24,8 +24,28 @@ public class Facts extends Application {
     
     private int factIndex = 6; // starting on which fact is getting showed next
     private int replaceIndex = 0; // the label that is going to be replaced next
+    
     @Override
     public void start(Stage stage) {
+        // Starting with the first six facts
+        Label[] labels = new Label[6];
+        // Looping through facts
+        for (int = 0; i < 6; i++) {
+            labels[i] = new Label(facts[i]);
+        }
 
+        // CTO Button
+        Button nextFactButton = new Button("Show next fact");
+
+        nextFactButton.setOnAction(e -> {
+            if (factIndex < facts.length) {
+                labels[replaceIndex].setText(facts[factIndex]);
+                factIndex++;
+                replaceIndex = (replaceIndex + 1) % 6;
+            } else {
+                nextFactButton.setText("No more facts!");
+                nextFactButton.setDisable(true);
+            }
+        });
     }
 }
