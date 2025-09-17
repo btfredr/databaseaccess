@@ -59,6 +59,7 @@ public class VacationRental extends Application {
             result.setText("Total cost: $" + cost);
         });
 
-        
+        VBox root = new VBox(10, location, parkSide, poolSide, lakeSide, bedroom, bedrooms, meals, calc, result);
+        root.setPadding(new Insets(15));
     }
 }
