@@ -27,6 +27,18 @@ public class Sandwich extends Application {
         Label bread = new Label("Choose main ingredient: ");
         ComboBox<String> breadTypes = new ComboBox<>();
 
-        breadTypes.getItems().addAll("Whole grain", "Wheat", "Rye");
+        breadTypes.getItems().addAll("Whole grain ($2.50)", "Wheat ($3)", "Rye ($4.25)");
+
+        Button calculate = new Button("Calculate total price: ");
+
+        calculate.setOnAction(e -> {
+            double ingredientPrice = switch (ingredients.getValue().split(" ")[0]) {
+                case "Cheese" -> 10.0;
+                case "Ham" -> 5.0;
+                case "Salami" -> 7.50;
+            };
+
+            
+        });
     }
 }
