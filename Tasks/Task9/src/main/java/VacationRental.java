@@ -61,5 +61,14 @@ public class VacationRental extends Application {
 
         VBox root = new VBox(10, location, parkSide, poolSide, lakeSide, bedroom, bedrooms, meals, calc, result);
         root.setPadding(new Insets(15));
+
+        Scene scene = new Scene(root, 400, 400);
+        stage.setScene(scene);
+        stage.setTitle("Lambert's Vacation Rentals");
+        stage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
     }
 }
