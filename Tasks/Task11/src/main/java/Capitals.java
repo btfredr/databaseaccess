@@ -1,3 +1,5 @@
+import java.lang.classfile.Label;
+
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -23,7 +25,23 @@ public class Capitals {
         countries.getItems().addAll("Norway", "Sweden", "Denmark", "Germany");
         countries.setValue("Norway");
 
-        
+        Button showCapital = new Button("Show capital");
+
+        Label capital = new Label("")
+
+        showCapital.setOnAction(e -> {
+                if (countries.value == "Norway") {
+                    capital.setText("Oslo");
+                } else if (countries.value == "Sweden") {
+                    capital.setText("Stockholm");
+                } else if (countries.value == "Denmark") {
+                    capital.setText("Copenhagen");
+                } else if (countries.value == "Germany") {
+                    capital.setText("Berlin");
+                } else {
+                    capital.setText("Capital will appear here.");
+                }
+        });
 
 
     }
