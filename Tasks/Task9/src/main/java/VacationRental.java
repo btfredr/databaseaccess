@@ -52,6 +52,13 @@ public class VacationRental extends Application {
             int numBedrooms = Integer.parseInt(bedrooms.getValue());
             if (numBedrooms == 2) cost += 75;
             if (numBedrooms == 3) cost += 150;
+
+            // meals
+            if (meals.isSelected()) cost += 200;
+
+            result.setText("Total cost: $" + cost);
         });
+
+        
     }
 }
