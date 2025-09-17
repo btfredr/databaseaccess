@@ -39,5 +39,16 @@ public class VacationRental extends Application {
         // Result
         Button calc = new Button("Calculate total cost");
         Label result = new Label("Total cost will appear here.");
+
+        calc.setOnAction(e -> {
+            int cost = 0;
+            
+            // Location cost
+            if (parkSide.isSelected()) cost = 600;
+            if (poolSide.isSelected()) cost = 750;
+            if (lakeSide.isSelected()) cost = 825;
+
+            
+        });
     }
 }
