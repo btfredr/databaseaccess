@@ -48,7 +48,10 @@ public class VacationRental extends Application {
             if (poolSide.isSelected()) cost = 750;
             if (lakeSide.isSelected()) cost = 825;
 
-            
+            // bedroom cost
+            int numBedrooms = Integer.parseInt(bedrooms.getValue());
+            if (numBedrooms == 2) cost += 75;
+            if (numBedrooms == 3) cost += 150;
         });
     }
 }
