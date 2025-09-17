@@ -1,5 +1,3 @@
-import java.lang.classfile.Label;
-
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -14,7 +12,7 @@ import javafx.stage.Stage;
     Save as Capitals.java.
  */
 
-public class Capitals {
+public class Capitals extends Application {
     
     @Override
     public void start(Stage stage) {
@@ -27,22 +25,27 @@ public class Capitals {
 
         Button showCapital = new Button("Show capital");
 
-        Label capital = new Label("")
+        Label capital = new Label("");
 
         showCapital.setOnAction(e -> {
-                if (countries.value == "Norway") {
-                    capital.setText("Oslo");
-                } else if (countries.value == "Sweden") {
-                    capital.setText("Stockholm");
-                } else if (countries.value == "Denmark") {
-                    capital.setText("Copenhagen");
-                } else if (countries.value == "Germany") {
-                    capital.setText("Berlin");
-                } else {
-                    capital.setText("Capital will appear here.");
-                }
+            String selectedCountry = countries.getValue(); // Bruk getValue() i stedet for value
+            switch (selectedCountry) {
+                case "Norway" -> capital.setText("Oslo");
+                case "Sweden" -> capital.setText("Stockholm");
+                case "Denmark" -> capital.setText("Copenhagen");
+                case "Germany" -> capital.setText("Berlin");
+                default -> capital.setText("Capital will appear here.");
+            }
         });
 
+        VBox root = new VBox(10, countryLabel, countries, showCapital, capital);
+        Scene scene = new Scene(root, 300, 400);
+        stage.setScene(scene);
+        stage.setTitle("Countries and capitals");
+        stage.show();
+    }
 
+    public static void main(String[] args) {
+        launch(args);
     }
 }
