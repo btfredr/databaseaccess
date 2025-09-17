@@ -14,4 +14,17 @@ import javafx.stage.Stage;
 
 public class Capitals {
     
+    @Override
+    public void start(Stage stage) {
+        // Countries
+        Label countryLabel = new Label("Select a country: ");
+        ComboBox<String> countries = new ComboBox<>();
+
+        countries.getItems().addAll("Norway", "Sweden", "Denmark", "Germany");
+        countries.setValue("Norway");
+
+        
+
+
+    }
 }
