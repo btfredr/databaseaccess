@@ -1,6 +1,4 @@
 import javafx.scene.control.Label;
-
-
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
